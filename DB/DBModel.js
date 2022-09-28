@@ -6,3 +6,5 @@ const instance = MONGOOSE.Schema({
   images: String,
   comments: [],
 });
+
+export default MONGOOSE.model('post', instance);
