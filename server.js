@@ -27,7 +27,19 @@ APP.post("/upload", (res, req) => {
 
   dbModel.create(body, (err, data) => {
     if (err) {
-      req.status(500).send(err);
+        res.status(500).send(err);
+    } else {
+      res.status(201).send(data);
+    }
+  });
+});
+
+APP.get("/sync", (req, res) => {
+  dbModel.find((err, data) => {
+    if(err) {
+        res.status(500).send(err);
+    } else {
+        res.status(201).send(data);
     }
   });
 });
